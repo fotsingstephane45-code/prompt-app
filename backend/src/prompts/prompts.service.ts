@@ -9,6 +9,7 @@ export class PromptsService {
     @InjectModel(Prompt.name) private promptModel: Model<PromptDocument>,
   ) {}
 
+  // 1. Méthode pour poser une question à l'IA et sauvegarder le prompt
   async ask(userId: string, question: string) {
     // 1. On enregistre la question et l'utilisateur
     await this.promptModel.create({
@@ -47,5 +48,15 @@ export class PromptsService {
       console.error(error);
       throw new InternalServerErrorException("L'IA n'a pas pu répondre");
     }
+  }
+
+  // 2. Méthode pour récupérer l'historique de l'utilisateur
+  async history(userId: string) {
+    return this.promptModel
+      .find({ user: new Types.ObjectId(userId) })
+      .sort({ createdAt: -1 })
+      .limit(100)
+      .select('question createdAt')
+      .lean();
   }
 }

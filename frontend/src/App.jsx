@@ -1,9 +1,14 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
+import Layout from './components/Layout'
+import Accueil from './pages/Accueil'
+import Chat from './pages/Chat'
+import Creer from './pages/Creer'
+import Explorer from './pages/Explorer'
+import Historique from './pages/Historique'
 import Login from './pages/Login'
+import MesPrompts from './pages/MesPrompts'
 import Register from './pages/Register'
 
-// le composant Private redirige vers la page de connexion si l'utilisateur n'est pas connecte
 function Private({ children }) {
   return localStorage.getItem('token') ? children : <Navigate to="/login" replace />
 }
@@ -11,9 +16,19 @@ function Private({ children }) {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Private><Home /></Private>} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+
+      {/* Toutes ces pages partagent le même cadre (menu + barre du haut) */}
+      <Route element={<Private><Layout /></Private>}>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/explorer" element={<Explorer />} />
+        <Route path="/mes-prompts" element={<MesPrompts />} />
+        <Route path="/historique" element={<Historique />} />
+        <Route path="/creer" element={<Creer />} />
+        <Route path="/chat" element={<Chat />} />
+      </Route>
+
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

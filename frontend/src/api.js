@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000'
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 //request est la seule fonction qui parle au backend: elle ajoute automatiquement le jeton JWT dans l'en-tete Authorization
 export async function request(path, options = {}) {

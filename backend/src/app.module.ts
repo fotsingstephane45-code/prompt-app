@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { PromptsModule } from './prompts/prompts.module';
 import { AuthModule } from './auth/auth.module';
-
+import { TemplatesModule } from './templates/templates.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     PromptsModule,
     AuthModule,
+    TemplatesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
