@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule } from '../auth/auth.module';
-import { UsersModule } from '../users/users.module';
-import { Template, TemplateSchema } from './templates.schema';
-import { TemplatesController } from './templates.controller';
-import { TemplatesService } from './templates.service';
+import { AuthModule } from '../auth/auth.module.js';
+import { UsersModule } from '../users/users.module.js';
+import { Template, TemplateSchema } from './templates.schema.js';
+import { TemplatesController } from './templates.controller.js';
+import { TemplatesService } from './templates.service.js';
 
 @Module({
   imports: [

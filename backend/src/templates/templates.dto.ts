@@ -1,5 +1,5 @@
 import { IsIn, IsNotEmpty, IsString, MaxLength } from 'class-validator';
-import { CATEGORIES } from './templates.schema';
+import { CATEGORIES } from './templates.schema.js';
 
 export class CreateTemplateDto {
   @IsString()

@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException, OnModuleInit } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
-import { User, UserDocument } from '../users/user.schema';
-import { CreateTemplateDto } from './templates.dto';
-import { Template, TemplateDocument } from './templates.schema';
-import { SEED } from './templates.seed';
+import { User, UserDocument } from '../users/user.schema.js';
+import { CreateTemplateDto } from './templates.dto.js';
+import { Template, TemplateDocument } from './templates.schema.js';
+import { SEED } from './templates.seed.js';
 
 @Injectable()
 export class TemplatesService implements OnModuleInit {

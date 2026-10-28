@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post, Query, Req, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { CreateTemplateDto } from './templates.dto';
-import { TemplatesService } from './templates.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard.js';
+import { CreateTemplateDto } from './templates.dto.js';
+import { TemplatesService } from './templates.service.js';
 
 @Controller('templates')
 @UseGuards(JwtAuthGuard)

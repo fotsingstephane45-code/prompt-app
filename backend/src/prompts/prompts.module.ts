@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule } from '../auth/auth.module';
-import { Prompt, PromptSchema } from './prompt.schema';
-import { PromptsController } from './prompts.controller';
-import { PromptsService } from './prompts.service';
+import { AuthModule } from '../auth/auth.module.js';
+import { Prompt, PromptSchema } from './prompt.schema.js';
+import { PromptsController } from './prompts.controller.js';
+import { PromptsService } from './prompts.service.js';
 
 @Module({
   imports: [
